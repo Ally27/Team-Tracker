@@ -14,30 +14,51 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
 
-function initPrompt(){
-inquirer
-  .prompt({
-    type: "list",
-    name: "task",
-    message: "Select a choice.",
-    choices: [
-      "View Employee",
-      "View by Department",
-      "Add Employee",
-      "Remove Employee",
-      "Update Employee Role to:",
-      "Create a New Role:",
-      "End",
-    ],
-  })
-  .then(function ({ task }) {
-    switch (task) {
-      case "View Employee":
-        viewEmployee();
-        break;
+function initPrompt() {
+  inquirer
+    .prompt({
+      type: "list",
+      name: "task",
+      message: "Select a choice.",
+      choices: [
+        "View Employee",
+        "View by Department",
+        "Add Employee",
+        "Remove Employee",
+        "Update Employee Role to:",
+        "Create a New Role:",
+        "End",
+      ],
+    })
+    .then(function ({ task }) {
+      switch (task) {
+        case "View Employees":
+          viewEmployee();
+          break;
+
         case "View by Department":
-            ViewbyDepartment();
-            break;
-    }
-  });
+          viewByDepartment();
+          break;
+
+        case "Add Employee":
+          addEmployee();
+          break;
+
+        case "Remove Employee":
+          removeEmployee();
+          break;
+
+        case "Update Role":
+          updateRole();
+          break;
+
+        case "Add Role":
+          addRole();
+          break;
+
+        case "End":
+          connection.end();
+          break;
+      }
+    });
 }
