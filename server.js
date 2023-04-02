@@ -130,4 +130,30 @@ function addEmployee() {
       });
     });
 }
+
+function removeEmployee() {
+  console.log("Remove which employee...\n");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "first_name",
+        message: "Enter first name:",
+      },
+      {
+        type: "input",
+        name: "last_name",
+        message: "Enter last name:",
+      },
+    ])
+    .then(function ({ first_name, last_name }) {
+      const sql = "DELETE FROM employee WHERE first_name = ? AND last_name = ?";
+      const params = [first_name, last_name];
+      db.query(sql, params, function (err, res) {
+        if (err) throw err;
+        console.log(`\n ${first_name} ${last_name} was successfully removed`);
+        initPrompt();
+      });
+    });
+}
 initPrompt();
