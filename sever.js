@@ -2,6 +2,19 @@ const express = require("express");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
 const inquirer = require("inquirer");
+const mysql=require("mysql2");
+require("console.table");
+require("dotenv").config();
+
+const connection = mysql.createConnection({
+  host: "localhost",
+  port: "3001",
+  user: "root",
+  password: "",
+  database: "employeeDB",
+},
+console.log("Connected to employeeDB database:")
+);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
