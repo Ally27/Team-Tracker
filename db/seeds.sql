@@ -6,14 +6,16 @@ INSERT INTO department (name)
 VALUES ("Finance");
 INSERT INTO department(name)
 VALUES ("Legal");
+
 INSERT INTO role (title, salary, department_id)
-VALUES ("Sales Lead, 80000", 1);
+VALUES ("Sales Lead", 80000.00, 1);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Lead Engineer, 150000", 2);
+VALUES ("Lead Engineer", 150000.00, 2);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Account Manager, 160000", 3);
+VALUES ("Account Manager", 160000.00, 3);
 INSERT INTO role (title, salary, department_id)
-VALUES ("Legal Team Lead, 250000", 4);
+VALUES ("Legal Team Lead", 250000.00, 4);
+
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Mike", "Chan", 1, 3);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
