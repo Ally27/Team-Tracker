@@ -1,6 +1,6 @@
 # Team-Tracker
 
-<img src="./assets/images/sql.PNG" width="280">
+<img src=".\assets\images\Sql.PNG" width="280">
 
 ## Description
 
