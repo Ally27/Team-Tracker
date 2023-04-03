@@ -4,14 +4,13 @@
 
 ## Description
 
-Manage your team with this Node.js application.Team tracker allows you to add, remove, or edit employees and departments.
+Manage your team with this Node.js application. Team tracker allows its users to add, remove, or edit employees and departments.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
-- [Deployed Application](#deployed-application)
 - [Walkthrough Video](#walkthrough-video)
 - [Questions](#questions)
 - [License](#license)
@@ -28,10 +27,6 @@ After proper installation, use node server.js within the command line and make s
 
 [Ally](https://github.com/Ally27)
 
-## Deployed Application
-
-[Heroku](https://note-vault.herokuapp.com/) <br>
-[GitHub](https://github.com/Ally27/NoteVault)
 
 ## Walkthrough Video
 
