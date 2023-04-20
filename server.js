@@ -10,7 +10,7 @@ const db = mysql.createConnection(
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
   },
-  console.log("Connected to employeeDB database: 3001")
+  console.log("Connected to employeedb database: 3001")
 );
 
 const PORT = process.env.PORT || 3001;
@@ -84,7 +84,7 @@ function viewByDepartment() {
       choices: ["Sales", "Engineering", "Finance", "Legal"],
     })
     .then(function ({ department }) {
-      const sql = " SELECT * FROM employees WHERE department = ?";
+      const sql = " SELECT * FROM employee WHERE department = ?";
       db.query(sql, [department], function (err, res) {
         if (err) throw err;
         console.table(res);
@@ -120,7 +120,8 @@ function addEmployee() {
       },
     ])
     .then(function ({ first_name, last_name, role_id, manager_id }) {
-      const sql = "INSERT INTO employee (first_name, last_name, role_id, manager_id)";
+      const sql =
+        "INSERT INTO employee (first_name, last_name, role_id, manager_id)";
       const params = [first_name, last_name, role_id, manager_id];
       db.query(sql, params, function (err, res) {
         if (err) throw err;
@@ -156,25 +157,25 @@ function removeEmployee() {
     });
 }
 
-function updateRole() { 
+function updateRole() {
   console.log("Updating employee role...\n");
   inquirer
     .prompt([
       {
-        type:"input",
-        name:"first_name",
-        message:"Enter first name:",
+        type: "input",
+        name: "first_name",
+        message: "Enter first name:",
       },
       {
-        type:"input",
-        name:"last_name",
-        message:"Enter last name:",
+        type: "input",
+        name: "last_name",
+        message: "Enter last name:",
       },
       {
-        type:"input",
-        name:"new_role_id",
-        message:"Select new role:",
-        choices:[
+        type: "input",
+        name: "new_role_id",
+        message: "Select new role:",
+        choices: [
           { name: "Sales" },
           { name: "Engineering" },
           { name: "Finance" },
@@ -182,8 +183,9 @@ function updateRole() {
         ],
       },
     ])
-    .then(function ({ first_name, last_name, new_role_id }) { 
-      const employeeSql = "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)";
+    .then(function ({ first_name, last_name, new_role_id }) {
+      const employeeSql =
+        "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)";
       const employeeParams = [new_role_id, first_name, last_name];
       db.query(employeeSql, employeeParams, (err, res) => {
         if (err) throw err;
